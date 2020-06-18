@@ -12,6 +12,7 @@ import Landing from './components/layout/Landing';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import PrivateRoute from "./components/private-route/PrivateRoute";
+import Private from "./components/private-route/Private";
 import Dashboard from "./components/dashboard/Dashboard";
 
 // Check for token to keep user logged in
@@ -45,6 +46,9 @@ class App extends Component {
         <Router>
           <div className="App">
             <Navbar />
+            <Switch>
+              <Private exact path="/" component={Dashboard} />
+            </Switch>
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
